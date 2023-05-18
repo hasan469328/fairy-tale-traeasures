@@ -3,7 +3,7 @@ import { Button, Carousel } from "flowbite-react";
 const CarouselSection = () => {
   return (
     <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mb-20">
-      <Carousel slideInterval={5000}>
+      <Carousel slideInterval={2000}>
         <div className="relative">
           <img
             src="https://i.ibb.co/Rby0JwM/emmanuel-denier-Yi-Xsjw-JKXmo-unsplash.jpg"

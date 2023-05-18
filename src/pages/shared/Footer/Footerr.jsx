@@ -7,13 +7,16 @@ const Footerr = () => {
     <Footer container={true}>
   <div className="w-full">
     <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-      <div>
-        <Footer.Brand
+      <div className="mb-4">
+        {/* <Footer.Brand
           href="/"
+          className=""
           src={logo}
           alt="Logo"
           name="Fairy Tale Treasures"
-        />
+        /> */}
+        <img src={logo} alt="" />
+        <p className="text-3xl font-bold hidden md:block md:ml-4 text-gray-700">Fairy Tale Treasures</p>
       </div>
       <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
         <div>
