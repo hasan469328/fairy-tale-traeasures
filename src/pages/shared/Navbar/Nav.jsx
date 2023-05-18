@@ -1,31 +1,29 @@
-import { Button, Navbar } from "flowbite-react";
-import brand from '../../../../public/brand.png'
+import {  Navbar } from "flowbite-react";
+import brand from '../../../../public/logo.png'
 
 const Nav = () => {
   return (
-    <Navbar fluid={true} rounded={true}>
-      <Navbar.Brand href="/">
+    <Navbar fluid={true} rounded={true} className="mb-10 mt-10">
+      <Navbar.Brand href="/" className="flex-1">
         <img
           src={brand}
           className=""
-          alt="Flowbite Logo"
+          alt="Website logo"
         />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">
-          Fairy Tale
-        </span>
+        <p className="text-3xl font-bold hidden md:block md:ml-4 text-gray-700">Fairy Tale Treasures</p>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Button>Get started</Button>
+       
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-        <Navbar.Link href="/navbars" active={true}>
+        <Navbar.Link className="md:text-2xl" href="/" active={true}>
           Home
         </Navbar.Link>
-        <Navbar.Link href="/navbars">About</Navbar.Link>
-        <Navbar.Link href="/navbars">Services</Navbar.Link>
-        <Navbar.Link href="/navbars">Pricing</Navbar.Link>
-        <Navbar.Link href="/navbars">Contact</Navbar.Link>
+        <Navbar.Link className="md:text-2xl"  href="/navbars">All Toys</Navbar.Link>
+        <Navbar.Link className="md:text-2xl" href="/navbars">My Toys</Navbar.Link>
+        <Navbar.Link className="md:text-2xl" href="/navbars">Add a Toy</Navbar.Link>
+        <Navbar.Link className="md:text-2xl" href="/blogs">Blogs</Navbar.Link>
       </Navbar.Collapse>
     </Navbar>
   );

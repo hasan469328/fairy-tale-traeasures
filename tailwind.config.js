@@ -6,7 +6,11 @@ export default {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        lobster: ['Lobster', 'cursive'],
+      },
+    },
   },
   plugins: [require('flowbite/plugin')],
 }

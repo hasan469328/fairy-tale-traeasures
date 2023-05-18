@@ -7,8 +7,10 @@ import router from "./router/Router.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider className="max-w-7xl" router={router}>
-      <App />
-    </RouterProvider>
+    <div className="max-w-7xl mx-auto font-lobster">
+      <RouterProvider router={router}>
+        <App />
+      </RouterProvider>
+    </div>
   </React.StrictMode>
 );
