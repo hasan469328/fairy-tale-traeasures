@@ -39,6 +39,7 @@ const Login = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   className="w-full border border-gray-400 p-2 rounded"
                 />
               </div>
@@ -51,6 +52,7 @@ const Login = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   id="password"
                   className="w-full border border-gray-400 p-2 rounded"
                 />

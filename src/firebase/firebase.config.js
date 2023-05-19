@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCHUXepGx93bJjgjPWF1A1hS0O0goH4HL8",
-  authDomain: "fairy-tale-treasures.firebaseapp.com",
-  projectId: "fairy-tale-treasures",
-  storageBucket: "fairy-tale-treasures.appspot.com",
-  messagingSenderId: "114102748665",
-  appId: "1:114102748665:web:cc13cd44be71aa33b8a928"
+  apiKey:  import.meta.env.VITE_APIKEY,
+  authDomain:  import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase

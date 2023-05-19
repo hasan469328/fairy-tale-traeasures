@@ -35,7 +35,8 @@ const Registration = () => {
               </label>
               <input
                 type="text"
-                id="email"
+                id="name"
+                name="name"
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -49,6 +50,7 @@ const Registration = () => {
               <input
                 type="email"
                 id="email"
+                name="name"
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -61,6 +63,7 @@ const Registration = () => {
               </label>
               <input
                 type="password"
+                name="password"
                 id="password"
                 className="w-full border border-gray-400 p-2 rounded"
               />
@@ -72,6 +75,7 @@ const Registration = () => {
               <input
                 type="text"
                 id="text"
+                name="photo"
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
