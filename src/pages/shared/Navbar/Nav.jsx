@@ -43,7 +43,7 @@ const Nav = () => {
             <Navbar.Link className="md:text-2xl" href="/navbars">
               My Toys
             </Navbar.Link>
-            <Navbar.Link className="md:text-2xl" href="/navbars">
+            <Navbar.Link className="md:text-2xl" href="/addToy">
               Add a Toy
             </Navbar.Link>
             <Avatar

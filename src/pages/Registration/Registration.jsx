@@ -1,11 +1,10 @@
 import { useContext, useState } from "react";
-import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
-  const { createUser, logOut, auth } = useContext(AuthContext);
+  const { createUser, logOut } = useContext(AuthContext);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -32,6 +31,7 @@ const Registration = () => {
           })
           .catch((error) => {
             // An error occurred
+            console.log(error.message);
             // ...
           });
 
@@ -54,9 +54,9 @@ const Registration = () => {
         backgroundPosition: "center",
         borderRadius: "8px",
       }}
-      className="md:flex h-screen overflow-scroll lg:overflow-hidden"
+      className="md:flex p-4"
     >
-      <div className="w-1/2 hidden lg:block">
+      <div className="lg:w-1/2 hidden lg:block">
         {/* Image */}
         <img
           src="https://i.ibb.co/wwNNR7S/output-onlinepngtools.png"
@@ -64,9 +64,9 @@ const Registration = () => {
           className=""
         />
       </div>
-      <div className="w-3/4 mx-auto my-auto lg:w-1/2 flex items-center justify-center">
+      <div className="lg:w-1/2 flex items-center justify-center">
         {/* Registration Form */}
-        <div className="w-full h-full lg:w-96 px-4  lg:px-8 lg:py-4 lg:border-2 lg:border-purple-500 lg:rounded-lg">
+        <div className="lg:w-96 px-4 lg:px-8 lg:py-4 border-2 border-purple-500 rounded-lg">
           <h2 className="text-white text-3xl font-bold mb-2 lg:mb-4">
             Register
           </h2>

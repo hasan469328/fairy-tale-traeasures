@@ -47,7 +47,7 @@ const Login = () => {
       }}
       className="relative"
     >
-      <div className="md:flex h-screen">
+      <div className="md:flex">
         <div className="w-1/2 hidden lg:block">
           {/* Image */}
           <img
@@ -56,7 +56,7 @@ const Login = () => {
             className=""
           />
         </div>
-        <div className="w-3/4 mx-auto my-auto lg:w-1/2 flex items-center justify-center">
+        <div className=" mx-auto my-auto lg:w-1/2 flex items-center justify-center">
           {/* Login Form */}
           <div className="w-full lg:w-96 p-4 lg:p-8 lg:border-2 lg:border-purple-500 lg:rounded-lg">
             <h2 className="text-white text-3xl font-bold mb-2 lg:mb-4">
