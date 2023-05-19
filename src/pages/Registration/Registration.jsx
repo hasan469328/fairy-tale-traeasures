@@ -4,8 +4,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Registration = () => {
-  const {createUser} = useContext(AuthContext)
+  const {createUser, googleSignIn} = useContext(AuthContext)
   const navigate = useNavigate();
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+    .then(result => {
+      const loggedUser = result.user
+      console.log(loggedUser)
+      navigate('/')
+    })
+    .catch(error => {
+      console.log(error.messeage)
+    })
+  }
+
   const handleSignUp = event => {
     event.preventDefault();
     const form = event.target;
@@ -113,9 +126,9 @@ const Registration = () => {
           </p>
           <hr className="mt-4 mb-4" />
           <div className="flex gap-4">
-            <BsGoogle className="text-white text-2xl" />
-            <BsFacebook className="text-white text-2xl" />
-            <BsGithub className="text-white text-2xl" />
+            <BsGoogle cursor='pointer' onClick={handleGoogleSignIn} className="text-white text-2xl" />
+            <BsFacebook cursor='pointer' className="text-white text-2xl" />
+            <BsGithub cursor='pointer' className="text-white text-2xl" />
           </div>
         </div>
       </div>

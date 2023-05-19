@@ -4,8 +4,20 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { useContext } from "react";
 
 const Login = () => {
-  const {signIn} = useContext(AuthContext);
+  const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate()
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+    .then(result => {
+      const loggedUser = result.user
+      console.log(loggedUser)
+      navigate('/')
+    })
+    .catch(error => {
+      console.log(error.messeage)
+    })
+  }
   const handleLogin = event =>{
     event.preventDefault()
     const form = event.target;
@@ -89,7 +101,7 @@ const Login = () => {
             </p>
             <hr className="mt-4 mb-4" />
             <div className="flex gap-4">
-                <BsGoogle className="text-white text-2xl"/>
+                <BsGoogle onClick={handleGoogleSignIn} className="text-white text-2xl"/>
                 <BsFacebook className="text-white text-2xl"/>
                 <BsGithub className="text-white text-2xl"/>
             </div>
