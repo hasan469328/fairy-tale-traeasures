@@ -30,7 +30,7 @@ const Nav = () => {
         <Navbar.Link className="md:text-2xl" href="/" active={true}>
           Home
         </Navbar.Link>
-        <Navbar.Link className="md:text-2xl" href="/navbars">
+        <Navbar.Link className="md:text-2xl" href="/allToys">
           All Toys
         </Navbar.Link>
         <Navbar.Link className="md:text-2xl" href="/blogs">
