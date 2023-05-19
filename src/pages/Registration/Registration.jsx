@@ -1,7 +1,27 @@
+import { useContext } from "react";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Registration = () => {
+  const {createUser} = useContext(AuthContext)
+  const navigate = useNavigate();
+  const handleSignUp = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const name = form.name.value;
+    const password = form.password.value;
+    createUser(email, password)
+    .then(result => {
+      const user = result.user;
+      navigate('/login')
+      console.log(user)
+    })
+    .catch(error => {
+      console.log(error.message)
+    })
+  }
   return (
     <div
       style={{
@@ -28,15 +48,15 @@ const Registration = () => {
           <h2 className="text-white text-3xl font-bold mb-2 lg:mb-4">
             Register
           </h2>
-          <form>
+          <form onSubmit={handleSignUp}>
             <div className="mb-2 lg:mb-4">
               <label htmlFor="text" className="text-white block font-bold mb-2">
                 Name
               </label>
               <input
                 type="text"
-                id="name"
                 name="name"
+                id="name"
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -50,7 +70,7 @@ const Registration = () => {
               <input
                 type="email"
                 id="email"
-                name="name"
+                name="email"
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
