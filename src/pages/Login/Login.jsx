@@ -1,3 +1,6 @@
+import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
+import { Link } from "react-router-dom";
+
 const Login = () => {
   return (
     <div
@@ -6,7 +9,9 @@ const Login = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        borderRadius: "16px"
       }}
+      className="relative"
     >
       <div className="md:flex h-screen">
         <div className="w-1/2 hidden lg:block">
@@ -19,8 +24,10 @@ const Login = () => {
         </div>
         <div className="w-3/4 mx-auto my-auto lg:w-1/2 flex items-center justify-center">
           {/* Login Form */}
-          <div className="w-full lg:w-96 p-4 lg:p-8  shadow-lg rounded">
-            <h2 className="text-white text-3xl font-bold mb-2 lg:mb-4">Login</h2>
+          <div className="w-full lg:w-96 p-4 lg:p-8 lg:border-2 lg:border-purple-500 lg:rounded-lg">
+            <h2 className="text-white text-3xl font-bold mb-2 lg:mb-4">
+              Login
+            </h2>
             <form>
               <div className="mb-2 lg:mb-4">
                 <label
@@ -48,13 +55,23 @@ const Login = () => {
                   className="w-full border border-gray-400 p-2 rounded"
                 />
               </div>
-              <button
+              <input
+                className="bg-gradient-to-r from-purple-500 to-pink-500 p-2 lg:px-4 lg:py-2 mb-4 text-xl cursor-pointer text-white font-bold rounded-lg"
                 type="submit"
-                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-              >
-                Sign In
-              </button>
+                value="Sign In"
+              />
             </form>
+            <p className="mb-4"></p>
+            <p>
+              <span className="text-white">Don&apos;t have an account?</span>{" "}
+              <Link to='/register' className="text-red-400">Sign Up</Link>{" "}
+            </p>
+            <hr className="mt-4 mb-4" />
+            <div className="flex gap-4">
+                <BsGoogle className="text-white text-2xl"/>
+                <BsFacebook className="text-white text-2xl"/>
+                <BsGithub className="text-white text-2xl"/>
+            </div>
           </div>
         </div>
       </div>
