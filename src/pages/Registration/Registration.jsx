@@ -2,9 +2,10 @@ import { useContext, useState } from "react";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
-  const {createUser, googleSignIn, logOut} = useContext(AuthContext)
+  const {createUser, googleSignIn, logOut, auth} = useContext(AuthContext)
   const [error, setError] = useState(null)
   const navigate = useNavigate();
 
@@ -25,6 +26,7 @@ const Registration = () => {
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
+    const photo = form.photo.value
     const password = form.password.value;
     if(password.length < 8){
       setError('Password Must Be 8 Character long!!!')
@@ -33,6 +35,18 @@ const Registration = () => {
     createUser(email, password)
     .then(result => {
       const user = result.user;
+      updateProfile(user, {
+        displayName: name,
+        photoURL: photo,
+      })
+        .then(() => {
+          console.log("profile updated");
+        })
+        .catch((error) => {
+          // An error occurred
+          // ...
+        });
+     
       logOut()
       .then()
       .catch()
