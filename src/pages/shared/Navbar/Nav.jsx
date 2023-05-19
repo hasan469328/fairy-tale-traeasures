@@ -40,7 +40,7 @@ const Nav = () => {
           <Link to='/login'><Button gradientDuoTone="purpleToPink">LogIn</Button></Link>
         ) : (
           <>
-            <Navbar.Link className="md:text-2xl" href="/navbars">
+            <Navbar.Link className="md:text-2xl" href="/myToys">
               My Toys
             </Navbar.Link>
             <Navbar.Link className="md:text-2xl" href="/addToy">
