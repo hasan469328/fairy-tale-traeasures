@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Registration = () => {
-  const {createUser, googleSignIn} = useContext(AuthContext)
+  const {createUser, googleSignIn, logOut} = useContext(AuthContext)
+  const [error, setError] = useState(null)
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
@@ -25,13 +26,22 @@ const Registration = () => {
     const email = form.email.value;
     const name = form.name.value;
     const password = form.password.value;
+    if(password.length < 8){
+      setError('Password Must Be 8 Character long!!!')
+      return;
+    }
     createUser(email, password)
     .then(result => {
       const user = result.user;
+      logOut()
+      .then()
+      .catch()
       navigate('/login')
+
       console.log(user)
     })
     .catch(error => {
+      setError(error.message)
       console.log(error.message)
     })
   }
@@ -70,6 +80,7 @@ const Registration = () => {
                 type="text"
                 name="name"
                 id="name"
+                required
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -84,6 +95,7 @@ const Registration = () => {
                 type="email"
                 id="email"
                 name="email"
+                required
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -98,6 +110,7 @@ const Registration = () => {
                 type="password"
                 name="password"
                 id="password"
+                required
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -109,6 +122,7 @@ const Registration = () => {
                 type="text"
                 id="text"
                 name="photo"
+                required
                 className="w-full border border-gray-400 p-2 rounded"
               />
             </div>
@@ -118,6 +132,7 @@ const Registration = () => {
               value="Sign Up"
             />
           </form>
+          <p className="text-red-400 mb-2">{error}</p>
           <p>
             <span className="text-white">Already have an account? Please</span>{" "}
             <Link to="/login" className="text-red-400">

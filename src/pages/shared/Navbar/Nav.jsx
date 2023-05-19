@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   {
     /* todo: this sholud be removed before final production */
   }
@@ -15,7 +15,6 @@ const Nav = () => {
     .then()
     .catch()
   };
-  console.log(user.photoURL)
   return (
     <Navbar fluid={true} rounded={true} className="mb-10 mt-10">
       <Navbar.Brand href="/" className="flex-1">
@@ -48,12 +47,12 @@ const Nav = () => {
               Add a Toy
             </Navbar.Link>
             <Avatar
-              img={user.photoURL}
+              img={user?.photoURL}
               rounded={true}
               bordered={true}
               color="purple"
               status="online"
-              title={user.displayName}
+              title={user?.displayName}
             />
             <Button onClick={handleLogOut} gradientDuoTone="purpleToPink">
               Logout

@@ -1,11 +1,12 @@
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const Login = () => {
   const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate()
+  const [error, setError] = useState(null)
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -15,6 +16,7 @@ const Login = () => {
       navigate('/')
     })
     .catch(error => {
+      setError(error.message)
       console.log(error.messeage)
     })
   }
@@ -30,6 +32,7 @@ const Login = () => {
       navigate('/')
     })
     .catch(error => {
+      setError(error.message)
       console.log(error.message)
     })
   }
@@ -94,7 +97,7 @@ const Login = () => {
                 value="Sign In"
               />
             </form>
-            <p className="mb-4"></p>
+            <p className="mb-4 text-red-400">{error}</p>
             <p>
               <span className="text-white">Don&apos;t have an account?</span>{" "}
               <Link to='/register' className="text-red-400">Sign Up</Link>{" "}
