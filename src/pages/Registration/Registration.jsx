@@ -5,60 +5,46 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
 const Registration = () => {
-  const {createUser, googleSignIn, logOut, auth} = useContext(AuthContext)
-  const [error, setError] = useState(null)
+  const { createUser, logOut, auth } = useContext(AuthContext);
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const handleGoogleSignIn = () => {
-    googleSignIn()
-    .then(result => {
-      const loggedUser = result.user
-      console.log(loggedUser)
-      navigate('/')
-    })
-    .catch(error => {
-      console.log(error.messeage)
-    })
-  }
-
-  const handleSignUp = event => {
+  const handleSignUp = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const name = form.name.value;
-    const photo = form.photo.value
+    const photo = form.photo.value;
     const password = form.password.value;
-    if(password.length < 8){
-      setError('Password Must Be 8 Character long!!!')
+    if (password.length < 8) {
+      setError("Password Must Be 8 Character long!!!");
       return;
     }
     createUser(email, password)
-    .then(result => {
-      const user = result.user;
-      updateProfile(user, {
-        displayName: name,
-        photoURL: photo,
-      })
-        .then(() => {
-          console.log("profile updated");
+      .then((result) => {
+        const user = result.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
         })
-        .catch((error) => {
-          // An error occurred
-          // ...
-        });
-     
-      logOut()
-      .then()
-      .catch()
-      navigate('/login')
+          .then(() => {
+            console.log("profile updated");
+          })
+          .catch((error) => {
+            // An error occurred
+            // ...
+          });
 
-      console.log(user)
-    })
-    .catch(error => {
-      setError(error.message)
-      console.log(error.message)
-    })
-  }
+        logOut().then().catch();
+        navigate("/login");
+
+        console.log(user);
+      })
+      .catch((error) => {
+        setError(error.message);
+        console.log(error.message);
+      });
+  };
   return (
     <div
       style={{
@@ -67,7 +53,6 @@ const Registration = () => {
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         borderRadius: "8px",
-        
       }}
       className="md:flex h-screen overflow-scroll lg:overflow-hidden"
     >
@@ -153,12 +138,6 @@ const Registration = () => {
               LogIn
             </Link>{" "}
           </p>
-          <hr className="mt-4 mb-4" />
-          <div className="flex gap-4">
-            <BsGoogle cursor='pointer' onClick={handleGoogleSignIn} className="text-white text-2xl" />
-            <BsFacebook cursor='pointer' className="text-white text-2xl" />
-            <BsGithub cursor='pointer' className="text-white text-2xl" />
-          </div>
         </div>
       </div>
     </div>
