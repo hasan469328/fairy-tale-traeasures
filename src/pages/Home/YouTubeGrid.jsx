@@ -1,6 +1,6 @@
 const YouTubeGrid = () => {
   return (
-    <div className="bg-gray-100 p-8 rounded-lg mb-10 mt-10">
+    <div className="bg-gray-100 p-8 rounded-lg mb-5 lg:mb-20 mt-5 lg:mt-10">
       <p className="text-5xl text-center font-bold mb-14 text-transparent bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text">
         Video Gallery <br /> Of Toys
       </p>

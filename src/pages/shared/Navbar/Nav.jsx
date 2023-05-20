@@ -16,7 +16,7 @@ const Nav = () => {
     .catch()
   };
   return (
-    <Navbar fluid={true} rounded={true} className="mb-10 mt-10">
+    <Navbar fluid={true} rounded={true} className="mb-5 lg:mb-10 lg:mt-10">
       <Navbar.Brand href="/" className="flex-1">
         <img src={brand} className="" alt="Website logo" />
         <p className="text-3xl font-bold hidden md:block md:ml-4 text-gray-700">

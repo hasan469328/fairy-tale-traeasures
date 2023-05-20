@@ -9,7 +9,7 @@ const Offer = () => {
   };
 
   return (
-    <div className="flex bg-gray-100 rounded-lg p-6 shadow-md mb-10">
+    <div className="flex bg-gray-100 rounded-lg p-6 shadow-md mb-5 lg:mb-20">
       <div className="flex-shrink-0">
         <img src={offer.image} alt={offer.title} className="w-32 h-auto rounded-md" />
       </div>

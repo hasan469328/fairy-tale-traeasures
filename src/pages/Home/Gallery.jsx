@@ -1,6 +1,6 @@
 const Gallery = () => {
   return (
-    <div className="container mx-auto mb-20 bg-gradient-to-r from-pink-100 to-purple-100 p-10 rounded-lg">
+    <div className="container mx-auto mb-5 lg:mb-20 bg-gradient-to-r from-pink-100 to-purple-100 p-10 rounded-lg">
       <h2 className="text-5xl text-center font-bold mb-14 text-transparent bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text">Enchanted Collection <br /> Gallery</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3 ">
         {/* Gallery Item 1 */}

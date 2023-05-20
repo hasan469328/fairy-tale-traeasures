@@ -2,7 +2,7 @@ import { Button, Carousel } from "flowbite-react";
 
 const CarouselSection = () => {
   return (
-    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mb-20">
+    <div className="h-56 sm:h-64 xl:h-80 2xl:h-96 mb-5 lg:mb-20">
       <Carousel slideInterval={2000}>
         <div className="relative">
           <img
@@ -10,7 +10,7 @@ const CarouselSection = () => {
             alt="..."
           />
           <div className="absolute flex h-full w-full items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
-            <div className="text-white w-1/2 lg:space-y-3 lg:pl-[100px]">
+            <div className="text-white lg:w-1/2 lg:space-y-3 text-center lg:text-left pl-2 lg:pl-[100px]">
               <h2 className="lg:text-6xl font-bold">
                 Where Dreams Come to Life
               </h2>
@@ -19,7 +19,7 @@ const CarouselSection = () => {
                 online store is a magical destination where cherished fairy
                 tales come to life. 
               </p>
-              <Button gradientDuoTone="purpleToPink">Discover More</Button>
+              <Button className="block mx-auto lg:inline mt-2" gradientDuoTone="purpleToPink">Discover More</Button>
             </div>
           </div>
         </div>
@@ -29,14 +29,14 @@ const CarouselSection = () => {
             alt="..."
           />
           <div className="absolute flex h-full w-full items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
-            <div className="text-white w-1/2 space-y-7 pl-[100px]">
-              <h2 className=" text-6xl font-bold">Experience the Wonder</h2>
+            <div className="text-center lg:text-left text-white lg:w-1/2 lg:space-y-3 lg:pl-[100px]">
+              <h2 className=" lg:text-6xl font-bold">Experience the Wonder</h2>
               <p>
                 At Fairy Tale Treasures, we believe in the power of dreams. Our
                 online store is a magical destination where cherished fairy
                 tales come to life. 
               </p>
-              <Button gradientDuoTone="purpleToPink">Discover More</Button>
+              <Button className="block mx-auto lg:inline mt-2" gradientDuoTone="purpleToPink">Discover More</Button>
             </div>
           </div>
         </div>
@@ -46,14 +46,14 @@ const CarouselSection = () => {
             alt="..."
           />
           <div className="absolute flex h-full w-full items-center left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] rounded-xl">
-            <div className="text-white w-1/2 space-y-7 pl-[100px]">
-              <h2 className=" text-6xl font-bold">Unveiling the Enchantment</h2>
+            <div className="text-center lg:text-left text-white lg:w-1/2 lg:space-y-3 pl-1 lg:pl-[100px]">
+              <h2 className=" lg:text-6xl font-bold">Unveiling the Enchantment</h2>
               <p>
                 At Fairy Tale Treasures, we believe in the power of dreams. Our
                 online store is a magical destination where cherished fairy
                 tales come to life. 
               </p>
-              <Button gradientDuoTone="purpleToPink">Discover More</Button>
+              <Button className="block mx-auto lg:inline mt-2" gradientDuoTone="purpleToPink">Discover More</Button>
             </div>
           </div>
         </div>
