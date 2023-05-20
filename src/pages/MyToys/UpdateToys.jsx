@@ -11,7 +11,7 @@ const UpdateToys = () => {
     singleToyData;
     console.log(_id)
 
-  const handleProductAdd = (event) => {
+  const handleUpdateProducts = (event) => {
     event.preventDefault();
     const form = event.target;
     const photo = form.photo.value;
@@ -54,7 +54,7 @@ const UpdateToys = () => {
       style={{ backgroundImage: "url('https://i.ibb.co/pf4VJz5/5329108.jpg')" }}
     >
       <form
-        onSubmit={handleProductAdd}
+        onSubmit={handleUpdateProducts}
         className="flex flex-col gap-4 lg:w-1/2 mx-auto"
       >
         <div>

@@ -31,7 +31,7 @@ const MyToys = () => {
       </Table.Head>
       <Table.Body className="divide-y">
         {myToys?.map((toy) => (
-          <MyToysRow key={toy._id} toy={toy}></MyToysRow>
+          <MyToysRow key={toy._id} toy={toy} setMyToys={setMyToys} myToys={myToys}></MyToysRow>
         ))}
       </Table.Body>
     </Table>

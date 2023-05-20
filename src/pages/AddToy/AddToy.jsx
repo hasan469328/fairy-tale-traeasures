@@ -1,6 +1,7 @@
 import { Label, Select, TextInput, Textarea } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
@@ -36,7 +37,14 @@ const AddToy = () => {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          icon: 'success',
+          title: 'Hurray!!!',
+          text: 'Toy Added successfully!',
+        })
+        form.reset()
+      }
     })
   };
   return (
