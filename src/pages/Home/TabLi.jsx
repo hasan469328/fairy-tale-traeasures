@@ -1,17 +1,38 @@
 import { useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import Princess from "./Princess";
 const TabLi = () => {
-  const princess = "Princess"
-  const [disneyPrincess, setDisneyPrincess] = useState([])
+  const princess = "Princess";
+  const frozen = "FrozenDolls";
+  const duck = "DonaldDuck";
+  const [disneyPrincess, setDisneyPrincess] = useState([]);
+  const [frozenDolls, setfrozenDolls] = useState([]);
+  const [donaldDuck, setdonaldDuck] = useState([]);
 
   const handleTabOneData = () => {
     console.log("clicked");
-    fetch(`http://localhost:5000/myToys?subCategory=Princess`)
-    .then(res => res.json())
-    .then(data => {
-      console.log(data)
-    })
+    fetch(`http://localhost:5000/category?subCategory=${princess}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setDisneyPrincess(data);
+      });
+  };
+
+  const handleTabTwoData = () => {
+    fetch(`http://localhost:5000/category?subCategory=${frozen}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setfrozenDolls(data);
+      });
+  };
+
+  const handleTabThreeData = () => {
+    fetch(`http://localhost:5000/category?subCategory=${duck}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setdonaldDuck(data);
+      });
   };
 
   return (
@@ -19,15 +40,30 @@ const TabLi = () => {
       <Tabs>
         <TabList>
           <Tab onClick={handleTabOneData}>Disney Princes</Tab>
-          <Tab>Frozen Dolls</Tab>
-          <Tab>Donald Duck</Tab>
+          <Tab onClick={handleTabTwoData}>Frozen Dolls</Tab>
+          <Tab onClick={handleTabThreeData}>Donald Duck</Tab>
         </TabList>
 
         <TabPanel>
-          <h2>Any content 1</h2>
+          <div className="lg:flex gap-4">
+            {disneyPrincess.map((princess) => (
+              <Princess key={princess._id} princess={princess}></Princess>
+            ))}
+          </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <div className="lg:flex gap-4">
+            {frozenDolls.map((princess) => (
+              <Princess key={princess._id} princess={princess}></Princess>
+            ))}
+          </div>
+        </TabPanel>
+        <TabPanel>
+        <div className="lg:flex gap-4">
+            {donaldDuck.map((princess) => (
+              <Princess key={princess._id} princess={princess}></Princess>
+            ))}
+          </div>
         </TabPanel>
       </Tabs>
     </div>
