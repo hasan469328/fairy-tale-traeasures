@@ -4,13 +4,13 @@ import React, { useContext } from "react";
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link, useNavigate } from "react-router-dom";
+import {  useLocation, useNavigate } from "react-router-dom";
 
 const ToyRows = ({ toy }) => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
   const {
-    
     sellerName,
     toyName,
     subCategory,
@@ -21,10 +21,14 @@ const ToyRows = ({ toy }) => {
     rating,
     description,
   } = toy;
-  console.log(toy);
+  
   const [showModal, setShowModal] = React.useState(false);
 
   const onClick = () => {
+    if (!user) {
+      navigate("/login", { state: { from: location }, replace: true });
+      return
+    }
     setShowModal(!showModal);
   };
 
@@ -45,13 +49,12 @@ const ToyRows = ({ toy }) => {
         <Button gradientDuoTone="purpleToPink" onClick={onClick}>
           View Details
         </Button>
-        {!user ? navigate('/login') : <>
         {showModal && (
           <Modal show={true} onClose={onClose}>
             <Modal.Header>{toyName}</Modal.Header>
             <Modal.Body>
               <div className="space-y-2">
-                <img src={photo} alt="" className="w-full h-48 lg:h-96"/>
+                <img src={photo} alt="" className="w-full h-48 lg:h-96" />
                 <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
                   Seller Name: {sellerName}
                 </p>
@@ -77,11 +80,12 @@ const ToyRows = ({ toy }) => {
               </div>
             </Modal.Body>
             <Modal.Footer>
-              <p className="text-gray-900 font-medium text-xl">Description: {description}</p>
+              <p className="text-gray-900 font-medium text-xl">
+                Description: {description}
+              </p>
             </Modal.Footer>
           </Modal>
         )}
-        </>}
       </Table.Cell>
     </Table.Row>
   );
