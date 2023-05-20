@@ -1,5 +1,6 @@
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyToysRow = ({ toy, setMyToys, myToys }) => {
   const { _id, sellerName, toyName, subCategory, price, quantity } = toy;
@@ -10,11 +11,23 @@ const MyToysRow = ({ toy, setMyToys, myToys }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if(data.deletedCount > 0){
-          alert('successfull')
-          const remaining = myToys.filter(toy => toy._id !== id)
-          setMyToys(remaining)
-        }
+        Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            if (data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remaining = myToys.filter((toy) => toy._id !== id);
+              setMyToys(remaining);
+            }
+          }
+        });
       });
   };
   return (
