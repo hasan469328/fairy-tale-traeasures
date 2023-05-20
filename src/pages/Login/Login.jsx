@@ -1,11 +1,13 @@
 import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
 
 const Login = () => {
   const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate()
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [error, setError] = useState(null)
 
   const handleGoogleSignIn = () => {
@@ -13,7 +15,7 @@ const Login = () => {
     .then(result => {
       const loggedUser = result.user
       console.log(loggedUser)
-      navigate('/')
+      navigate(from, { replace: true });
     })
     .catch(error => {
       setError(error.message)
@@ -29,7 +31,7 @@ const Login = () => {
     signIn(email, password)
     .then(result => {
       const loggedUser = result.user
-      navigate('/')
+      navigate(from, { replace: true });
     })
     .catch(error => {
       setError(error.message)

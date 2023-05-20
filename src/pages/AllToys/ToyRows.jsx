@@ -1,12 +1,16 @@
 import { Button, Modal, Table } from "flowbite-react";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 
 const ToyRows = ({ toy }) => {
+  const {user} = useContext(AuthContext)
+  const navigate = useNavigate();
   const {
-    _id,
+    
     sellerName,
     toyName,
     subCategory,
@@ -41,6 +45,7 @@ const ToyRows = ({ toy }) => {
         <Button gradientDuoTone="purpleToPink" onClick={onClick}>
           View Details
         </Button>
+        {!user ? navigate('/login') : <>
         {showModal && (
           <Modal show={true} onClose={onClose}>
             <Modal.Header>{toyName}</Modal.Header>
@@ -76,6 +81,7 @@ const ToyRows = ({ toy }) => {
             </Modal.Footer>
           </Modal>
         )}
+        </>}
       </Table.Cell>
     </Table.Row>
   );
