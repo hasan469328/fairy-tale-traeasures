@@ -2,8 +2,10 @@ import { Table } from "flowbite-react";
 
 import ToyRows from "./ToyRows";
 import { useEffect, useState } from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle("All Toys")
   const [allToys, setAlltoys] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {

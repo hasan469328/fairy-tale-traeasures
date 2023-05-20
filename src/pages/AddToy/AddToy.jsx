@@ -2,8 +2,10 @@ import { Label, Select, TextInput, Textarea } from "flowbite-react";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle('Add Toy')
   const { user } = useContext(AuthContext);
   const handleProductAdd = (event) => {
     event.preventDefault();

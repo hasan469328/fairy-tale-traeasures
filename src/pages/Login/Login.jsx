@@ -2,8 +2,10 @@ import { BsFacebook, BsGithub, BsGoogle } from "react-icons/bs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useContext, useState } from "react";
+import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
+  useTitle('Login')
   const {signIn, googleSignIn} = useContext(AuthContext);
   const navigate = useNavigate()
   const location = useLocation();

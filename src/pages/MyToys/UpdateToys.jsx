@@ -3,8 +3,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Label, Select, TextInput, Textarea } from "flowbite-react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../../hooks/useTitle";
 
 const UpdateToys = () => {
+  useTitle("Update Toys")
   const { user } = useContext(AuthContext);
   const singleToyData = useLoaderData();
   const navigate = useNavigate()
