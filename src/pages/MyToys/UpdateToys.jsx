@@ -1,15 +1,16 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Label, Select, TextInput, Textarea } from "flowbite-react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateToys = () => {
   const { user } = useContext(AuthContext);
   const singleToyData = useLoaderData();
-  console.log(singleToyData);
+  const navigate = useNavigate()
   const { _id,photo, description, price, quantity, toyName, subCategory, rating } =
     singleToyData;
-    console.log(_id)
+   
 
   const handleUpdateProducts = (event) => {
     event.preventDefault();
@@ -44,7 +45,12 @@ const UpdateToys = () => {
       .then((res) => res.json())
       .then((data) => {
         if(data.modifiedCount > 0){
-          console.log(data);
+          Swal.fire({
+            icon: 'success',
+            title: 'Hurray!!!',
+            text: 'Toy Updated successfully!',
+          })
+          navigate('/myToys')
         }   
       });
   };
