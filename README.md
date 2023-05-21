@@ -32,7 +32,8 @@ Welcome to Fairy Tale Treasures, your ultimate destination for a delightful coll
 
 This website was developed by Md Hasanur Rahman, a full-stack developer with a passion for building beautiful and functional web applications. You can check out his other projects on [gitHub](https://github.com/hasan469328).
 
-If you have any questions or feedback about the American Cuisine website, feel free to reach out to John via email at hasanur.68.bd@gmail.com.
+If you have any questions or feedback about the 
+Fairy Tale Treasures website, feel free to reach out to us via email at hasanur.68.bd@gmail.com.
 
 
 ## Live Site

@@ -5,41 +5,39 @@ import { useContext, useState } from "react";
 import useTitle from "../../../hooks/useTitle";
 
 const Login = () => {
-  useTitle('Login')
-  const {signIn, googleSignIn} = useContext(AuthContext);
-  const navigate = useNavigate()
+  useTitle("Login");
+  const { signIn, googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
-    .then(result => {
-      const loggedUser = result.user
-      console.log(loggedUser)
-      navigate(from, { replace: true });
-    })
-    .catch(error => {
-      setError(error.message)
-      console.log(error.messeage)
-    })
-  }
-  const handleLogin = event =>{
-    event.preventDefault()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  const handleLogin = (event) => {
+    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password)
     signIn(email, password)
-    .then(result => {
-      const loggedUser = result.user
-      navigate(from, { replace: true });
-    })
-    .catch(error => {
-      setError(error.message)
-      console.log(error.message)
-    })
-  }
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
   return (
     <div
       style={{
@@ -47,7 +45,7 @@ const Login = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        borderRadius: "16px"
+        borderRadius: "16px",
       }}
       className="relative"
     >
@@ -104,13 +102,18 @@ const Login = () => {
             <p className="mb-4 text-red-400">{error}</p>
             <p>
               <span className="text-white">Don&apos;t have an account?</span>{" "}
-              <Link to='/register' className="text-red-400">Sign Up</Link>{" "}
+              <Link to="/register" className="text-red-400">
+                Sign Up
+              </Link>{" "}
             </p>
             <hr className="mt-4 mb-4" />
             <div className="flex gap-4">
-                <BsGoogle onClick={handleGoogleSignIn} className="text-white text-2xl"/>
-                <BsFacebook className="text-white text-2xl"/>
-                <BsGithub className="text-white text-2xl"/>
+              <BsGoogle
+                onClick={handleGoogleSignIn}
+                className="text-white text-2xl cursor-pointer"
+              />
+              <BsFacebook className="text-white text-2xl cursor-pointer" />
+              <BsGithub className="text-white text-2xl cursor-pointer" />
             </div>
           </div>
         </div>
