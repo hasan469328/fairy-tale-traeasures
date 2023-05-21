@@ -10,7 +10,7 @@ const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState(null);
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/myToys?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);

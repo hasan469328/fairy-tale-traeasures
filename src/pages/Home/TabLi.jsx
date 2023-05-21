@@ -12,7 +12,7 @@ const TabLi = () => {
 
   const handleTabOneData = () => {
     console.log("clicked");
-    fetch(`http://localhost:5000/category?subCategory=${princess}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/category?subCategory=${princess}`)
       .then((res) => res.json())
       .then((data) => {
         setDisneyPrincess(data);
@@ -20,7 +20,7 @@ const TabLi = () => {
   };
 
   const handleTabTwoData = () => {
-    fetch(`http://localhost:5000/category?subCategory=${frozen}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/category?subCategory=${frozen}`)
       .then((res) => res.json())
       .then((data) => {
         setfrozenDolls(data);
@@ -28,7 +28,7 @@ const TabLi = () => {
   };
 
   const handleTabThreeData = () => {
-    fetch(`http://localhost:5000/category?subCategory=${duck}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/category?subCategory=${duck}`)
       .then((res) => res.json())
       .then((data) => {
         setdonaldDuck(data);

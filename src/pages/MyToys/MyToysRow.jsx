@@ -6,7 +6,7 @@ const MyToysRow = ({ toy, setMyToys, myToys }) => {
   const { _id, sellerName, toyName, subCategory, price, quantity } = toy;
 
   const handleDeleteProducts = (id) => {
-    fetch(`http://localhost:5000/toys/${id}`, {
+    fetch(`https://fairy-tale-treasures-server.vercel.app/toys/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

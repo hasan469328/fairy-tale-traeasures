@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const SortByPrice = ({ setMyToys }) => {
   const { user } = useContext(AuthContext);
   const handleAscending = () => { 
-    fetch(`http://localhost:5000/myToys/sortAscending?email=${user?.email}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/myToys/sortAscending?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
@@ -13,7 +13,7 @@ const SortByPrice = ({ setMyToys }) => {
   };
 
   const handleDescending = () => {
-    fetch(`http://localhost:5000/myToys/sortDescending?email=${user?.email}`)
+    fetch(`https://fairy-tale-treasures-server.vercel.app/myToys/sortDescending?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);

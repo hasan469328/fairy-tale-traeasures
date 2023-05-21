@@ -37,7 +37,7 @@ const UpdateToys = () => {
       quantity,
       description,
     };
-    fetch(`http://localhost:5000/toys/${_id}`, {
+    fetch(`https://fairy-tale-treasures-server.vercel.app/toys/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

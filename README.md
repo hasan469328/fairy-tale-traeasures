@@ -38,4 +38,4 @@ Fairy Tale Treasures website, feel free to reach out to us via email at hasanur.
 
 ## Live Site
 
-Check out our live site at [demo](https://americana-bistro-client.web.app/) to explore the disney toys!!!
+Check out our live site at [demo](https://fairy-tale-treasures.web.app/) to explore the disney toys!!!

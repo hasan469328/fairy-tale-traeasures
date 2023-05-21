@@ -30,7 +30,7 @@ const AddToy = () => {
       quantity,
       description,
     };
-    fetch("http://localhost:5000/toys", {
+    fetch("https://fairy-tale-treasures-server.vercel.app/toys", {
       method: "post",
       headers: {
         'content-type': 'application/json'

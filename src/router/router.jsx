@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
-        loader: () => fetch("http://localhost:5000/blogs")
+        loader: () => fetch("https://fairy-tale-treasures-server.vercel.app/blogs")
       },
       {
         path: "/addToy",
@@ -50,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/update/:id",
         element: <UpdateToys></UpdateToys>,
-        loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://fairy-tale-treasures-server.vercel.app/toys/${params.id}`)
       },
       {
         path: "/singleToy/:id",
         element: <SingleToy></SingleToy>,
-        loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader: ({params}) => fetch(`https://fairy-tale-treasures-server.vercel.app/toys/${params.id}`)
       }
     ],
   },

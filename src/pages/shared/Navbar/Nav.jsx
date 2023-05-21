@@ -5,16 +5,10 @@ import { AuthContext } from "../../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
 const Nav = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
-  {
-    /* todo: this sholud be removed before final production */
-  }
-  const handleLogOut = () => {
-    logOut()
-    .then()
-    .catch()
-  };
+ 
+  
   return (
     <Navbar fluid={true} rounded={true} className="mb-5 lg:mb-10 lg:mt-10">
       <Navbar.Brand href="/" className="flex-1">
@@ -54,10 +48,6 @@ const Nav = () => {
               status="online"
               title={user?.displayName}
             />
-            <Button onClick={handleLogOut} gradientDuoTone="purpleToPink">
-              Logout
-            </Button>
-            {/* todo: this sholud be removed before final production */}
           </>
         )}
       </Navbar.Collapse>

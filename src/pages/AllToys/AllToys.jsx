@@ -9,7 +9,7 @@ const AllToys = () => {
   const [allToys, setAlltoys] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://fairy-tale-treasures-server.vercel.app/toys")
     .then((res) => res.json())
     .then((data) => {
       setAlltoys(data);
