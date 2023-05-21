@@ -3,9 +3,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Table } from "flowbite-react";
 import MyToysRow from "./MyToysRow";
 import useTitle from "../../../hooks/useTitle";
+import SortByPrice from "./SortByPrice";
 
 const MyToys = () => {
-  useTitle("My Toys")
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState(null);
   useEffect(() => {
@@ -17,26 +18,34 @@ const MyToys = () => {
   }, [user?.email]);
 
   return (
-    <Table className="mb-10">
-      <Table.Head>
-        <Table.HeadCell>Seller</Table.HeadCell>
-        <Table.HeadCell>Toy Name</Table.HeadCell>
-        <Table.HeadCell>Sub Category</Table.HeadCell>
-        <Table.HeadCell>Price</Table.HeadCell>
-        <Table.HeadCell>Available Quantity</Table.HeadCell>
-        <Table.HeadCell>
-          <span className="sr-only">Update</span>
-        </Table.HeadCell>
-        <Table.HeadCell>
-          <span className="sr-only">Delete</span>
-        </Table.HeadCell>
-      </Table.Head>
-      <Table.Body className="divide-y">
-        {myToys?.map((toy) => (
-          <MyToysRow key={toy._id} toy={toy} setMyToys={setMyToys} myToys={myToys}></MyToysRow>
-        ))}
-      </Table.Body>
-    </Table>
+    <>
+      <SortByPrice setMyToys={setMyToys}></SortByPrice>
+      <Table className="mb-10">
+        <Table.Head>
+          <Table.HeadCell>Seller</Table.HeadCell>
+          <Table.HeadCell>Toy Name</Table.HeadCell>
+          <Table.HeadCell>Sub Category</Table.HeadCell>
+          <Table.HeadCell>Price</Table.HeadCell>
+          <Table.HeadCell>Available Quantity</Table.HeadCell>
+          <Table.HeadCell>
+            <span className="sr-only">Update</span>
+          </Table.HeadCell>
+          <Table.HeadCell>
+            <span className="sr-only">Delete</span>
+          </Table.HeadCell>
+        </Table.Head>
+        <Table.Body className="divide-y">
+          {myToys?.map((toy) => (
+            <MyToysRow
+              key={toy._id}
+              toy={toy}
+              setMyToys={setMyToys}
+              myToys={myToys}
+            ></MyToysRow>
+          ))}
+        </Table.Body>
+      </Table>
+    </>
   );
 };
 

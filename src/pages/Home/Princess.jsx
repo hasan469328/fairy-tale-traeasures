@@ -13,25 +13,14 @@ const Princess = ({ princess }) => {
   const handleView = () => {
     if (!user) {
       Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Login first!',
-      })
+        icon: "error",
+        title: "Oops...",
+        text: "Login first!",
+      });
       navigate("/login", { state: { from: location }, replace: true });
     }
   };
-  const {
-    _id,
-    sellerName,
-    toyName,
-    subCategory,
-    price,
-    quantity,
-    photo,
-    email,
-    rating,
-    description,
-  } = princess;
+  const { _id, toyName, price, photo, rating } = princess;
   return (
     <div>
       <div className="max-w-md">
